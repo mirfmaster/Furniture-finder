@@ -1,0 +1,23 @@
+.MuiPaper-elevation1 {
+  -webkit-box-shadow: 0px 3px 3px 3px rgba(190, 190, 190, 1) !important;
+  -moz-box-shadow: 0px 3px 3px 3px rgba(190, 190, 190, 1) !important;
+  box-shadow: 0px 3px 3px 3px rgba(190, 190, 190, 1) !important;
+}
+
+.MuiInput-underline:before,
+.MuiInput-underline:after {
+  border-bottom: 1px solid white !important;
+}
+
+
+.MuiSelect-icon {
+  color: white !important
+}
+
+.MuiFormLabel-root {
+  color: white !important
+}
+
+.MuiInputBase-input {
+  color: white !important
+}
