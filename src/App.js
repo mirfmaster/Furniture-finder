@@ -12,7 +12,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch("http://www.mocky.io/v2/5c9105cb330000112b649af8")
+    fetch("https://www.mocky.io/v2/5c9105cb330000112b649af8")
       .then(response => response.json())
       .then(data => setData(data))
       .catch(err => alert(err));
