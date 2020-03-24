@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Furniture-finder/static/css/main.f844d6cf.chunk.css",
+    "main.js": "/Furniture-finder/static/js/main.8a9fbba9.chunk.js",
+    "main.js.map": "/Furniture-finder/static/js/main.8a9fbba9.chunk.js.map",
+    "runtime-main.js": "/Furniture-finder/static/js/runtime-main.61bbd944.js",
+    "runtime-main.js.map": "/Furniture-finder/static/js/runtime-main.61bbd944.js.map",
+    "static/js/2.cbadc93b.chunk.js": "/Furniture-finder/static/js/2.cbadc93b.chunk.js",
+    "static/js/2.cbadc93b.chunk.js.map": "/Furniture-finder/static/js/2.cbadc93b.chunk.js.map",
+    "index.html": "/Furniture-finder/index.html",
+    "precache-manifest.5e1857ed73d0ef85873df215b410e6d9.js": "/Furniture-finder/precache-manifest.5e1857ed73d0ef85873df215b410e6d9.js",
+    "service-worker.js": "/Furniture-finder/service-worker.js",
+    "static/css/main.f844d6cf.chunk.css.map": "/Furniture-finder/static/css/main.f844d6cf.chunk.css.map",
+    "static/js/2.cbadc93b.chunk.js.LICENSE.txt": "/Furniture-finder/static/js/2.cbadc93b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.61bbd944.js",
+    "static/js/2.cbadc93b.chunk.js",
+    "static/css/main.f844d6cf.chunk.css",
+    "static/js/main.8a9fbba9.chunk.js"
+  ]
+}
