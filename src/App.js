@@ -3,7 +3,6 @@ import "./App.css";
 import { Container, Grid } from "@material-ui/core";
 import ProductCard from "./components/ProductCard";
 import Select from "./components/CustomSelect";
-import _ from "lodash";
 
 function App() {
   const [data, setData] = useState({ products: [] });
@@ -28,7 +27,7 @@ function App() {
     data.products &&
     data.products
       .filter(item => {
-        if (state.selectedStyle.length == 0) return true;
+        if (state.selectedStyle.length === 0) return true;
         let sameStyle = item.furniture_style.filter(style =>
           state.selectedStyle.includes(style)
         );
@@ -36,14 +35,14 @@ function App() {
         return sameStyle.length > 0 ? item : false;
       })
       .filter(item => {
-        if (state.deliveryTime.length == 0) return true;
+        if (state.deliveryTime.length === 0) return true;
         let deliveryTime = state.deliveryTime.filter(time => {
           let day =
-            time == "1 Week"
+            time === "1 Week"
               ? 7
-              : time == "2 Weeks"
+              : time === "2 Weeks"
               ? 14
-              : time == "1 Month"
+              : time === "1 Month"
               ? 30
               : 0;
 
@@ -80,10 +79,11 @@ function App() {
         />
       </Grid>
       <Container>
-        <Grid container justify="space-between" spacing="3">
-          {products.map(item => {
+        <Grid container justify="space-between" spacing={3}>
+          {products.map((item, index) => {
             return (
               <ProductCard
+                key={index}
                 name={item.name}
                 description={item.description}
                 furniture_style={item.furniture_style}
