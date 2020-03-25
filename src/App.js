@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Container, Grid } from "@material-ui/core";
+import {
+  Container,
+  Grid,
+  FormControl,
+  TextField,
+  makeStyles
+} from "@material-ui/core";
 import ProductCard from "./components/ProductCard";
 import Select from "./components/CustomSelect";
 
@@ -8,7 +14,8 @@ function App() {
   const [data, setData] = useState({ products: [] });
   const [state, setState] = useState({
     selectedStyle: [],
-    deliveryTime: []
+    deliveryTime: [],
+    search: ""
   });
 
   useEffect(() => {
@@ -22,10 +29,23 @@ function App() {
     setState({ ...state, [name]: value });
   };
 
+  const useStyles = makeStyles(theme => ({
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: "80%",
+      maxWidth: "80%"
+    }
+  }));
+  const classes = useStyles();
+
   let deliveryTime = ["1 Week", "2 Weeks", "1 Month"];
   let products =
     data.products &&
     data.products
+      .filter(item => {
+        if (state.search.length === 0) return true;
+        return item.name.toLowerCase().includes(state.search.toLowerCase());
+      })
       .filter(item => {
         if (state.selectedStyle.length === 0) return true;
         let sameStyle = item.furniture_style.filter(style =>
@@ -51,11 +71,13 @@ function App() {
 
         return deliveryTime.length > 0 ? item : false;
       });
+
   return (
     <div className="App">
       <Grid
         container
         justify="center"
+        alignItems="center"
         style={{
           width: "100%",
           height: "15vh",
@@ -63,20 +85,38 @@ function App() {
           marginBottom: "30px"
         }}
       >
-        <Select
-          name="selectedStyle"
-          options={data.furniture_styles || []}
-          label="Furniture Style"
-          selected={state.selectedStyle}
-          handleChange={handleChange}
-        />
-        <Select
-          name="deliveryTime"
-          options={deliveryTime || []}
-          label="Delivery Time"
-          selected={state.deliveryTime}
-          handleChange={handleChange}
-        />
+        <Grid item sm={3} xs={12}>
+          <FormControl className={classes.formControl}>
+            <TextField
+              id="standard-basic"
+              label="Search Furniture"
+              placeholder="Search Furniture"
+              name="search"
+              value={state.search}
+              onChange={e => {
+                setState({ ...state, search: e.target.value });
+              }}
+            />
+          </FormControl>
+        </Grid>
+        <Grid item sm={3} xs={12}>
+          <Select
+            name="selectedStyle"
+            options={data.furniture_styles || []}
+            label="Furniture Style"
+            selected={state.selectedStyle}
+            handleChange={handleChange}
+          />
+        </Grid>
+        <Grid item sm={3} xs={12}>
+          <Select
+            name="deliveryTime"
+            options={deliveryTime || []}
+            label="Delivery Time"
+            selected={state.deliveryTime}
+            handleChange={handleChange}
+          />
+        </Grid>
       </Grid>
       <Container>
         <Grid container justify="space-between" spacing={3}>

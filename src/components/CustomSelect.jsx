@@ -14,8 +14,8 @@ const CustomSelect = ({ options, label, handleChange, selected, name }) => {
   const useStyles = makeStyles(theme => ({
     formControl: {
       margin: theme.spacing(1),
-      minWidth: "35%",
-      maxWidth: "35%"
+      minWidth: "80%",
+      maxWidth: "80%"
     },
     chips: {
       display: "flex",
